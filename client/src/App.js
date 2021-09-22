@@ -1,5 +1,6 @@
 import { Fragment, useEffect, useState } from "react";
 import Form from "./components/form/form.component";
+import Button from "./components/service/button/button.component";
 import Inventary from "./Inventary";
 
 function App() {
@@ -99,6 +100,12 @@ function App() {
 
   return (
     <Fragment>
+      <Button
+        buttonType="success"
+        targetId="exampleModal"
+        buttonText="Sample text"
+        labelId="exampleModalLabel"
+      />
       <Form
         formValues={formValues}
         setFormValues={setFormValues}

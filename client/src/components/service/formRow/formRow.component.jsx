@@ -64,7 +64,7 @@ const FormRow = ({
             tag={tag}
             onChange={onChange}
             options={options}
-            lower
+            lower={lower}
           />
         ) : (
           <GenericField
