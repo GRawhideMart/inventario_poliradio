@@ -100,12 +100,12 @@ function App() {
 
   return (
     <Fragment>
-      <Button
+      {/* <Button
         buttonType="success"
         targetId="exampleModal"
         buttonText="Sample text"
         labelId="exampleModalLabel"
-      />
+      /> */}
       <Form
         formValues={formValues}
         setFormValues={setFormValues}
@@ -113,7 +113,15 @@ function App() {
         resetForm={resetForm}
         options={selectOptions}
       />
-      <Inventary inventary={state.data || []} handleDelete={handleDelete} />
+      <Inventary
+        inventary={state.data || []}
+        handleDelete={handleDelete}
+        formValues={formValues}
+        setFormValues={setFormValues}
+        handleSubmit={handleSubmit}
+        resetForm={resetForm}
+        options={selectOptions}
+      />
     </Fragment>
   );
 }

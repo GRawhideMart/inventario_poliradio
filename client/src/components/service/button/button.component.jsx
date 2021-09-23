@@ -5,12 +5,36 @@ import ModalHeader from "../modal/header";
 import ModalBody from "../modal/body";
 import ModalFooter from "../modal/footer";
 
-const ModalButton = ({ buttonType, targetId, labelId, buttonText }) => {
+const Footer = ({ onSave }) => {
+  return (
+    <div>
+      <button type="button" className="btn btn-danger" data-dismiss="modal">
+        Chiudi
+      </button>
+      <button type="button" className="btn btn-success" onClick={onSave}>
+        Salva
+      </button>
+    </div>
+  );
+};
+
+const ModalButton = ({
+  children,
+  buttonType,
+  targetId,
+  labelId,
+  buttonText,
+  mini,
+  modalTitle,
+  onSave,
+}) => {
   return (
     <div>
       <button
         type="button"
-        class={`btn btn-${buttonType}`}
+        className={
+          mini ? `btn btn-mini btn-${buttonType}` : `btn btn-${buttonType}`
+        }
         data-toggle="modal"
         data-target={`#${targetId}`}
       >
@@ -20,15 +44,10 @@ const ModalButton = ({ buttonType, targetId, labelId, buttonText }) => {
       {/* <!-- Modal --> */}
       <Modal targetId={targetId} labelId={labelId}>
         <ModalContent>
-          <ModalHeader labelId="exampleModalLabel" title="Title of modal" />
-          <ModalBody>Things here will appear inside the body</ModalBody>
+          <ModalHeader labelId={labelId} title={modalTitle} />
+          <ModalBody>{children}</ModalBody>
           <ModalFooter>
-            <button type="button" class="btn btn-danger" data-dismiss="modal">
-              Close
-            </button>
-            <button type="button" class="btn btn-success">
-              Save changes
-            </button>
+            <Footer onSave={onSave} />
           </ModalFooter>
         </ModalContent>
       </Modal>

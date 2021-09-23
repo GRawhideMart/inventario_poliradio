@@ -4,7 +4,8 @@
   "description": "Backend per il manager inventariale di POLI.RADIO",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon"
+    "start": "node index.js",
+    "dev": "nodemon"
   },
   "author": "Giulio Mario Martena",
   "license": "MIT",
